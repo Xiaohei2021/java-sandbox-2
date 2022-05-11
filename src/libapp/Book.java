@@ -14,8 +14,25 @@ public class Book {
         this.genre = genre;
         this.description = description;
         this.author = author;
-        System.out.println("Hello world!");
+    }
 
+    public String getIsbn() {
+        return isbn;
+    }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 }
