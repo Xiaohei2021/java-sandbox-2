@@ -6,5 +6,6 @@ public class Main {
         LibraryApp app = new LibraryApp();
 
         app.searchByIsbn("15972");
+        app.searchByTitle("dagger");
     }
 }
