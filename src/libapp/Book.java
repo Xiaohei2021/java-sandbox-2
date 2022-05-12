@@ -7,14 +7,19 @@ public class Book {
     private String description;
     private String author;
 
+    private int quantity;
+    private int numCheckOut;
 
-    public Book(String isbn, String title, String genre, String description, String author) {
+    public Book(String isbn, String title, String genre, String description, String author, int quantity, int numCheckOut) {
         this.isbn = isbn;
         this.title = title;
         this.genre = genre;
         this.description = description;
         this.author = author;
+        this.quantity = quantity;
+        this.numCheckOut = numCheckOut;
     }
+
 
     public String getIsbn() {
         return isbn;
@@ -34,5 +39,13 @@ public class Book {
 
     public String getAuthor() {
         return author;
+    }
+
+    public void checkOut(){
+        numCheckOut ++;
+    }
+
+    public void checkIn(){
+        numCheckOut--;
     }
 }
