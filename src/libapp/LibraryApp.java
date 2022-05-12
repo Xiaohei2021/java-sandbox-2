@@ -33,14 +33,22 @@ public class LibraryApp {
     public void checkOutBook(String isbn){
         Book book = bookRepo.findByIsbn(isbn);
         if(book!= null){
-            book.checkOut();
-            System.out.println("Book Checked out successfully");
-            System.out.printf("\tISBN: %s\n\tTitle: %s\n\tGenre: %s\n\tAuthor: %s\n\t", book.getIsbn(),book.getTitle(), book.getGenre(), book.getAuthor());
-            System.out.println("\n");
+            if(book.checkOut()){
+                System.out.println("Book Checked out successfully: ");
+                System.out.printf("\tISBN: %s\n\tTitle: %s\n\tGenre: %s\n\tAuthor: %s\n\t", book.getIsbn(),book.getTitle(), book.getGenre(), book.getAuthor());
+                System.out.println("\n");
+            }
+
+            else{
+                System.out.println("Failed to check out book.");
+                System.out.printf("\tISBN: %s\n\tTitle: %s\n\tGenre: %s\n\tAuthor: %s\n\t", book.getIsbn(),book.getTitle(), book.getGenre(), book.getAuthor());
+                System.out.println("Reason: all of the books have been checked out, please come back at a later time to try again");
+            }
         }
         else{
             System.out.println("Failed to check out book.");
-            System.out.println("Reason: no book with the given ISBN is found");
+            System.out.printf("\tISBN: %s\n\tTitle: %s\n\tGenre: %s\n\tAuthor: %s\n\t", book.getIsbn(),book.getTitle(), book.getGenre(), book.getAuthor());
+            System.out.println("Reason: all of the books have been checked out, please come back at a later time to try again");
         }
     }
 

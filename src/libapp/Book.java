@@ -41,11 +41,19 @@ public class Book {
         return author;
     }
 
-    public void checkOut(){
+    public boolean checkOut(){
+        if(numCheckOut >= quantity){
+            return false;
+        }
         numCheckOut ++;
+        return true;
     }
 
-    public void checkIn(){
+    public boolean checkIn(){
+        if(numCheckOut <= 0){
+            return false;
+        }
         numCheckOut--;
+        return true;
     }
 }
